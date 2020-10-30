@@ -12,19 +12,33 @@ namespace mathTools
         friend fraction operator+(fraction& fraction1, const fraction& other);
         friend fraction& operator-=(fraction& fraction1, const fraction& fraction2);
         friend fraction operator-(fraction& fraction1, const fraction& other);
+        friend fraction& operator*=(fraction& fraction1, const fraction& fraction2);
+        friend fraction operator*(fraction& fraction1, const fraction& other);
+        friend fraction& operator/=(fraction& fraction1, const fraction& fraction2);
+        friend fraction operator/(fraction& fraction1, const fraction& other);
 
-        int gcd(int a, int b);
+        unsigned gcd(unsigned a, unsigned b); //рекурсивный евклид
+        void swap(fraction& m);
 
-        void sokrDrop();
+        void sokrDrop(); //сокращает дробь
 
     public:
-        fraction();
 
-        fraction(int numerator, int denominator);
+        fraction(fraction& other);/*конструктор копирования*/
 
-        fraction& operator=(const fraction& other);
+        fraction(fraction&& m) noexcept; //move
 
-        void print();
+        fraction& operator=(fraction&& m) noexcept; //move
+
+        fraction(); //стандартный конструктор
+
+        void set(int numerator, int denominator); //установка значений
+
+        fraction(int numerator, int denominator); // конструктор с параметрами
+
+        fraction& operator=(const fraction& other); // присваивание
+
+        void print(); // вывод на экран
     };
 
 }

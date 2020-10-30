@@ -1,0 +1,2 @@
+C:\Users\Даниил\source\repos\lab4oopDrob\x64\Debug\lab4oopDrob.exe
+C:\Users\Даниил\source\repos\lab4oopDrob\x64\Debug\lab4oopDrob.pdb

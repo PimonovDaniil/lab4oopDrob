@@ -1,6 +1,7 @@
 ﻿#define _USE_MATH_DEFINES
 #include "fraction.h"
 #include <iostream>
+#include <utility>
 #include <locale.h>
 #include <math.h>
 
@@ -42,7 +43,37 @@ namespace mathTools
         return res;
     }
 
-    int fraction::gcd(int a, int b)
+    fraction& operator*=(fraction& fraction1, const fraction& fraction2)
+    {
+        fraction1.numerator *= fraction2.numerator;
+        fraction1.denominator *= fraction2.denominator;
+        fraction1.sokrDrop();
+        return fraction1;
+    }
+
+    fraction operator*(fraction& fraction1, const fraction& other)
+    {
+        fraction res(fraction1);
+        res *= other;
+        return res;
+    }
+
+    fraction& operator/=(fraction& fraction1, const fraction& fraction2)
+    {
+        fraction1.numerator *= fraction2.denominator;
+        fraction1.denominator *= fraction2.numerator;
+        fraction1.sokrDrop();
+        return fraction1;
+    }
+
+    fraction operator/(fraction& fraction1, const fraction& other)
+    {
+        fraction res(fraction1);
+        res /= other;
+        return res;
+    }
+
+    unsigned fraction::gcd(unsigned a, unsigned b)
     {
         if (a == b) {
             return a;
@@ -55,6 +86,12 @@ namespace mathTools
         return gcd(a, b - a);
     }
 
+    void fraction::swap(fraction& m)
+    {
+        std::swap(this->numerator, m.numerator);
+        std::swap(this->denominator, m.denominator);
+    }
+
     void fraction::sokrDrop()
     {
         int nod = this->gcd(abs(this->numerator), abs(this->denominator));
@@ -64,6 +101,23 @@ namespace mathTools
         }
     }
 
+    fraction::fraction(fraction& other)
+    {
+        this->denominator = other.denominator;
+        this->numerator = other.numerator;
+    }
+
+    fraction::fraction(fraction&& m) noexcept
+    {
+        swap(m);
+    }
+
+    fraction& fraction::operator=(fraction&& m) noexcept
+    {
+        swap(m);
+        return *this;
+    }
+
     fraction::fraction()
     {
                 this->numerator = 0;
@@ -71,7 +125,7 @@ namespace mathTools
                 this->sokrDrop();
     }
 
-    fraction::fraction(int numerator, int denominator)
+    void fraction::set(int numerator, int denominator)
     {
         if (denominator == 0)throw "Знаменатель не может быть 0";
         this->numerator = numerator;
@@ -81,6 +135,11 @@ namespace mathTools
             this->denominator = abs(this->denominator);
         }
         this->sokrDrop();
+    }
+
+    fraction::fraction(int numerator, int denominator)
+    {
+        this->set(numerator, denominator);
     }
 
     fraction& fraction::operator=(const fraction& other)
