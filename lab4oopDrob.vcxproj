@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="fraction\fraction.cpp" />
     <ClCompile Include="lab4oopDrob.cpp" />
+    <ClCompile Include="polynomial\polynomial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fraction\fraction.h" />
+    <ClInclude Include="polynomial\polynomial.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

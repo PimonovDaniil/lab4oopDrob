@@ -80,7 +80,7 @@ namespace mathTools
         }
         if (a > b) {
             int tmp = a;
-            a = b;
+            a = b;  
             b = tmp;
         }
         return gcd(a, b - a);

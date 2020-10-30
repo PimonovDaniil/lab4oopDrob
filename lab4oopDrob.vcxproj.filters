@@ -21,9 +21,15 @@
     <ClCompile Include="fraction\fraction.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="polynomial\polynomial.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fraction\fraction.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="polynomial\polynomial.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
