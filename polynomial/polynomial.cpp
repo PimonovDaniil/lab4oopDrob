@@ -56,6 +56,7 @@ namespace mathTools
 				polynomial1.m_data.push_back(polynomial2.m_data[i]);
 			}
 		}
+		polynomial1.delNull();
 		return polynomial1;
 	}
 
@@ -77,6 +78,7 @@ namespace mathTools
 				polynomial1.m_data.push_back(-polynomial2.m_data[i]);
 			}
 		}
+		polynomial1.delNull();
 		return polynomial1;
 	}
 
@@ -91,7 +93,7 @@ namespace mathTools
 	{
 		if ((polynomial1.m_data.size() <= 0) || (polynomial2.m_data.size() <= 0)) throw "не надо так";
 		int nSize = polynomial1.m_data.size() + polynomial2.m_data.size() - 1;
-		vector<int> n_data;
+		vector<double> n_data;
 		for (int i = 0; i < nSize; i++)
 			n_data.push_back(0);
 		for (int i = 0; i < polynomial1.m_data.size(); i++) 
@@ -99,12 +101,63 @@ namespace mathTools
 				n_data[i + j] += polynomial1.m_data[i] * polynomial2.m_data[j];
 		
 		polynomial1.m_data = n_data;
+		polynomial1.delNull();
+		return polynomial1;
 	}
 
 	polynomial operator*(polynomial& polynomial1, const polynomial& polynomial2)
 	{
 		polynomial res(polynomial1);
 		res *= polynomial2;
+		return res;
+	}
+
+	polynomial& operator/=(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		vector<double>  del;
+		vector<double>  res;
+		vector<double>  v1;
+		vector<double>  v2;
+		vector<double>  v3;
+		for (int i = polynomial2.m_data.size() - 1; i >= 0; i--)
+			del.push_back(polynomial2.m_data[i]);
+		for (int i = polynomial1.m_data.size() - 1; i >= 0; i--)
+			v1.push_back(polynomial1.m_data[i]);
+		while (v1.size() >=del.size())
+		{
+			/*cout << endl;
+			for (int i = 0; i < v1.size(); i++)
+				cout << v1[i] << " ";*/
+			res.push_back(v1[0] / del[0]);
+			for (int i = 1; i < del.size(); i++) 
+				v2.push_back(del[i] * res[res.size() - 1]);
+
+			for (int i = 0; i < v2.size(); i++)
+				v3.push_back(v1[i + 1] - v2[i]);
+
+			for (int i = del.size(); i < v1.size(); i++) {
+				v3.push_back(v1[i]);
+			}
+				
+			
+			v1 = v3;
+			v2.clear(); v3.clear();
+		}
+		/*cout << endl;
+		for (int i = 0; i < res.size(); i++)
+			cout << res[i] << " ";
+		cout << endl;
+		for (int i = 0; i < v1.size(); i++)
+			cout << v1[i] << " ";*/
+		reverse(res.begin(), res.end());
+		polynomial1.m_data = res;
+		return polynomial1;
+	}
+
+	polynomial operator/(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		polynomial res(polynomial1);
+		res /= polynomial2;
 		return res;
 	}
 

@@ -14,17 +14,17 @@ int main()
     fraction c;
     c = a / b;
     c.print();*/
-    double* m = new double[2];
-    m[0] = 5; m[1] = 2;
-    polynomial a(2,m);
+    double* m = new double[4];
+    m[0] = -2; m[1] = 16; m[2] = 0; m[3] = 15;
+    polynomial a(4,m);
     a.print();
 
     double* m1 = new double[3];
-    m1[0] = 1; m1[1] = -2; m1[2] = 6;
+    m1[0] = -2; m1[1] = 1; m1[2] = 2;
     polynomial b(3, m1);
     b.print();
 
-    a *= b;
+    a /= b;
     a.print();
     
 }
