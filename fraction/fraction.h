@@ -39,6 +39,12 @@ namespace mathTools
         fraction& operator=(const fraction& other); // присваивание
 
         void print(); // вывод на экран
+
+        int getNumerator(); //вернуть числитель
+
+        int getDenominator(); //вернуть знаменатель
+
+        double get(); //вернуть десятичную дробь
     };
 
 }

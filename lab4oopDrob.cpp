@@ -2,6 +2,7 @@
 #include "fraction/fraction.h"
 
 using namespace mathTools;
+using namespace std;
 
 int main()
 {
@@ -12,5 +13,6 @@ int main()
     fraction c;
     c = a / b;
     c.print();
+    cout << c.get();
     
 }

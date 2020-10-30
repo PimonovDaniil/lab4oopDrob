@@ -156,4 +156,19 @@ namespace mathTools
     {
         printf("%d/%d\n", this->numerator, this->denominator);
     }
+
+    int fraction::getNumerator()
+    {
+        return this->numerator;
+    }
+
+    int fraction::getDenominator()
+    {
+        return this->denominator;
+    }
+
+    double fraction::get()
+    {
+        return (double)this->numerator / (double)this->denominator;
+    }
 }
