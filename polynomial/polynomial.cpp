@@ -45,4 +45,67 @@ namespace mathTools
 
 
 
+	polynomial& operator+=(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		int m = max(polynomial1.m_data.size(), polynomial2.m_data.size());
+		for (int i = 0; i < m; i++) {
+			if (i < polynomial1.m_data.size()) {
+				polynomial1.m_data[i] += polynomial2.m_data[i];
+			}
+			else {
+				polynomial1.m_data.push_back(polynomial2.m_data[i]);
+			}
+		}
+		return polynomial1;
+	}
+
+	polynomial operator+(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		polynomial res(polynomial1);
+		res += polynomial2;
+		return res;
+	}
+
+	polynomial& operator-=(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		int m = max(polynomial1.m_data.size(), polynomial2.m_data.size());
+		for (int i = 0; i < m; i++) {
+			if (i < polynomial1.m_data.size()) {
+				polynomial1.m_data[i] -= polynomial2.m_data[i];
+			}
+			else {
+				polynomial1.m_data.push_back(-polynomial2.m_data[i]);
+			}
+		}
+		return polynomial1;
+	}
+
+	polynomial operator-(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		polynomial res(polynomial1);
+		res -= polynomial2;
+		return res;
+	}
+
+	polynomial& operator*=(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		if ((polynomial1.m_data.size() <= 0) || (polynomial2.m_data.size() <= 0)) throw "не надо так";
+		int nSize = polynomial1.m_data.size() + polynomial2.m_data.size() - 1;
+		vector<int> n_data;
+		for (int i = 0; i < nSize; i++)
+			n_data.push_back(0);
+		for (int i = 0; i < polynomial1.m_data.size(); i++) 
+			for (int j = 0; j < polynomial2.m_data.size(); j++) 
+				n_data[i + j] += polynomial1.m_data[i] * polynomial2.m_data[j];
+		
+		polynomial1.m_data = n_data;
+	}
+
+	polynomial operator*(polynomial& polynomial1, const polynomial& polynomial2)
+	{
+		polynomial res(polynomial1);
+		res *= polynomial2;
+		return res;
+	}
+
 }
