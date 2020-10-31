@@ -20,6 +20,7 @@ namespace mathTools
         friend polynomial& operator%=(polynomial& polynomial1, const polynomial& polynomial2);
         friend polynomial operator%(polynomial& polynomial1, const polynomial& polynomial2);
     public:
+        double& operator()(double x);
 
         void set(int size, double* m_data);
 

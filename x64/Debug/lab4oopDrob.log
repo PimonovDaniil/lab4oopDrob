@@ -1,10 +1,12 @@
-﻿  lab4oopDrob.cpp
-  polynomial.cpp
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(50,68): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(72,68): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(95,72): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(122,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(124,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(138,4): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  Создание кода...
+﻿  polynomial.cpp
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(61,68): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(83,68): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(106,72): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(133,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(135,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(149,4): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(183,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(185,3): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(196,4): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Даниил\source\repos\lab4oopDrob\polynomial\polynomial.cpp(17): warning C4172: возвращение адреса локальной или временной переменной : res
   lab4oopDrob.vcxproj -> C:\Users\Даниил\source\repos\lab4oopDrob\x64\Debug\lab4oopDrob.exe
